@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ShippingServiceController;
@@ -28,9 +28,7 @@ Route::post('/logout', [AuthController::class, 'logout'])
 // Admin
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/', function () {
-        return 'Halo Admin! Login berhasil.';
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // Kategori (M2)
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
