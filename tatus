@@ -1,0 +1,12 @@
+*   [33m738941b[m[33m ([m[1;33mtag: [m[1;33mm2-master-product[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m git tag m2-master-productMerge branch 'milestone/02-master-product'
+[31m|[m[32m\[m  
+[31m|[m * [33m6e57493[m[33m ([m[1;31morigin/milestone/02-master-product[m[33m, [m[1;32mmilestone/02-master-product[m[33m)[m feat(admin): add product management with image upload
+[31m|[m * [33m58f4b5d[m feat(catalog): add category and product schema
+[31m|[m * [33m9b8a9d7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmilestone/03-inventory-shipping[m[33m)[m feat(catalog): add category and product schema
+[31m|[m[31m/[m  
+*   [33m4d170ff[m[33m ([m[1;33mtag: [m[1;33mm1-auth-role[m[33m)[m Merge branch 'milestone/01-auth-role'
+[33m|[m[34m\[m  
+[33m|[m * [33m1a14f3a[m[33m ([m[1;32mmilestone/01-auth-role[m[33m)[m feat(auth): add role middleware and admin seeder
+[33m|[m * [33m9841493[m[33m ([m[1;31morigin/milestone/01-auth-role[m[33m)[m feat: add user role middleware and migration
+[33m|[m[33m/[m  
+* [33m60769a0[m chore: initialize Laravel online sales project

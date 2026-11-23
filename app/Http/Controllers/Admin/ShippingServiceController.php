@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Models\ShippingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -54,3 +55,11 @@ class ShippingServiceController extends Controller
         return back()->with('success', 'Layanan ekspedisi dinonaktifkan.');
     }
 }
+=======
+use Illuminate\Http\Request;
+
+class ShippingServiceController extends Controller
+{
+    //
+}
+>>>>>>> milestone/03-inventory-shipping
