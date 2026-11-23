@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ShippingServiceController;
 use App\Http\Controllers\Admin\StockController;
@@ -41,11 +43,9 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/pesanan/{order}', [CustomerOrderController::class, 'show'])->name('orders.show');
 });
 
-// Admin
+// Admin (M2, M3 & M7)
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/', function () {
-        return 'Halo Admin! Login berhasil.';
-    })->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
 
     // Kategori (M2)
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
@@ -66,4 +66,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::post('/shipping', [ShippingServiceController::class, 'store'])->name('shipping.store');
     Route::put('/shipping/{shippingService}', [ShippingServiceController::class, 'update'])->name('shipping.update');
     Route::delete('/shipping/{shippingService}', [ShippingServiceController::class, 'destroy'])->name('shipping.destroy');
+
+    // Validasi & Siklus Pesanan (M7)
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
+    Route::patch('/orders/{order}/validate', [AdminOrderController::class, 'validateOrder'])->name('orders.validate');
+    Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.status');
+    Route::patch('/orders/{order}/cancel', [AdminOrderController::class, 'cancel'])->name('orders.cancel');
 });
