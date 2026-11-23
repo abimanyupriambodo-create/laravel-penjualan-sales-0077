@@ -29,8 +29,8 @@ class ShippingService extends Model
     {
         return $this->hasMany(Order::class);
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> milestone/03-inventory-shipping
+
+
+
