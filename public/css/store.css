@@ -1,0 +1,196 @@
+
+/* ===== ADMIN PANEL - RUANG BELANJA ===== */
+
+:root {
+    --admin-bg: #f4f6fb;
+    --admin-dark: #17243a;
+    --admin-blue: #4263eb;
+    --admin-text: #25324b;
+    --admin-muted: #8792a5;
+    --admin-border: #e8edf5;
+}
+
+.admin-wrap {
+    display: flex;
+    min-height: 100vh;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.admin-side {
+    width: 260px;
+    min-height: 100vh;
+    padding: 30px 20px;
+    background: var(--admin-dark);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.admin-side .brand {
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-decoration: none;
+    margin: 5px 10px 35px;
+}
+
+.admin-side .eyebrow {
+    color: #8492aa;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 10px 10px;
+}
+
+.admin-side > a:not(.brand) {
+    display: block;
+    color: #c5cede;
+    padding: 13px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.admin-side > a:not(.brand):hover,
+.admin-side > a[aria-current="page"] {
+    background: #2b3c59;
+    color: white;
+}
+
+.admin-side form {
+    margin-top: auto;
+}
+
+.admin-side .btn-light {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #45536a;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.admin-side .btn-light:hover {
+    background: #34445f;
+}
+
+.admin-main {
+    flex: 1;
+    min-width: 0;
+    padding: 30px 38px;
+}
+
+.admin-context {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 22px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--admin-border);
+    color: var(--admin-muted);
+    font-size: 13px;
+}
+
+.admin-main h1,
+.admin-main h2,
+.admin-main h3 {
+    color: var(--admin-dark);
+    letter-spacing: -.5px;
+}
+
+.admin-main .card,
+.admin-main .panel {
+    background: white;
+    border: 1px solid var(--admin-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 5px 20px rgba(30, 50, 90, .04);
+}
+
+.admin-main input,
+.admin-main select,
+.admin-main textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dce3ee;
+    border-radius: 9px;
+    background: white;
+    font: inherit;
+    outline: none;
+}
+
+.admin-main input:focus,
+.admin-main select:focus,
+.admin-main textarea:focus {
+    border-color: var(--admin-blue);
+    box-shadow: 0 0 0 3px rgba(66, 99, 235, .1);
+}
+
+.admin-main button,
+.admin-main .btn {
+    border: none;
+    border-radius: 9px;
+    padding: 11px 17px;
+    background: var(--admin-blue);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.admin-main button:hover,
+.admin-main .btn:hover {
+    background: #3451ce;
+}
+
+.admin-main table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.admin-main th,
+.admin-main td {
+    padding: 15px;
+    border-bottom: 1px solid var(--admin-border);
+    text-align: left;
+    font-size: 14px;
+}
+
+.admin-main th {
+    background: #f8faff;
+    color: #68758b;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .admin-wrap {
+        flex-direction: column;
+    }
+
+    .admin-side {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .admin-main {
+        padding: 20px 15px;
+    }
+
+    .admin-context {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
