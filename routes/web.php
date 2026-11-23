@@ -1,8 +1,9 @@
-
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\ShippingServiceController;
+use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,20 +26,29 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
 
 // Admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/admin', function () {
+    Route::get('/', function () {
         return 'Halo Admin! Login berhasil.';
-    })->name('admin.dashboard');
+    })->name('dashboard');
 
-    // Kategori
-    Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index');
-    Route::post('/admin/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
-    Route::put('/admin/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
-    Route::delete('/admin/categories/{category}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
+    // Kategori (M2)
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
-    // Produk
-    Route::resource('/admin/products', AdminProductController::class)
-        ->except('show')
-        ->names('admin.products');
+    // Produk (M2)
+    Route::resource('products', AdminProductController::class)->except('show');
+
+    // Stok & Barang Masuk (M3)
+    Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+    Route::get('/stock/create', [StockController::class, 'create'])->name('stock.create');
+    Route::post('/stock', [StockController::class, 'store'])->name('stock.store');
+
+    // Ekspedisi (M3)
+    Route::get('/shipping', [ShippingServiceController::class, 'index'])->name('shipping.index');
+    Route::post('/shipping', [ShippingServiceController::class, 'store'])->name('shipping.store');
+    Route::put('/shipping/{shippingService}', [ShippingServiceController::class, 'update'])->name('shipping.update');
+    Route::delete('/shipping/{shippingService}', [ShippingServiceController::class, 'destroy'])->name('shipping.destroy');
 });
