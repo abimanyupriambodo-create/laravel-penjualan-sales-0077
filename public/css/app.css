@@ -1,0 +1,576 @@
+
+/* =====================================================
+   RUANG BELANJA
+   Modern Premium E-Commerce Design
+   Custom CSS - Version 1.0
+===================================================== */
+
+/* 1. IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* 2. ROOT VARIABLES */
+:root {
+    --primary: #087f5b;
+    --primary-dark: #056044;
+    --primary-light: #e6f5ef;
+
+    --navy: #142d2a;
+    --dark: #1c2926;
+    --text: #34433e;
+    --muted: #84918c;
+
+    --background: #f5f8f6;
+    --surface: #ffffff;
+    --border: #e7eeea;
+
+    --success: #16a36a;
+    --danger: #e05252;
+    --warning: #e8a33d;
+
+    --shadow-sm: 0 4px 15px rgba(20, 45, 42, .05);
+    --shadow-md: 0 12px 35px rgba(20, 45, 42, .09);
+    --shadow-lg: 0 22px 60px rgba(20, 45, 42, .13);
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --transition: all .3s ease;
+}
+
+/* 3. GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--background);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 4. CONTAINER */
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+/* 5. TOP ANNOUNCEMENT */
+.top-note {
+    background: var(--navy);
+    color: #ffffff;
+    text-align: center;
+    padding: 9px 15px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+/* 6. HEADER */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 3px 15px rgba(20, 45, 42, .025);
+}
+
+.nav {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand:hover {
+    color: var(--primary);
+}
+
+.brand-mark {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #0ba477, #056044);
+    color: white;
+    box-shadow: 0 6px 16px rgba(8, 127, 91, .25);
+}
+
+.nav a:not(.brand) {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.nav a:not(.brand):hover {
+    color: var(--primary);
+}
+
+/* 7. MAIN CONTENT */
+main {
+    min-height: 65vh;
+    padding-top: 45px;
+    padding-bottom: 65px;
+}
+
+/* 8. AUTHENTICATION SECTION */
+.auth-card {
+    width: min(100%, 470px);
+    margin: 25px auto;
+    padding: 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    animation: fadeUp .7s ease both;
+}
+
+.auth-card::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, var(--primary), #64c9a3);
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.auth-card h1 {
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(25px, 4vw, 32px);
+    line-height: 1.3;
+    letter-spacing: -1.2px;
+    margin-bottom: 10px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 9. FORM */
+form {
+    margin-top: 25px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 18px;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 16px;
+    color: var(--navy);
+    background: #f9fbfa;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    font-size: 13px;
+    transition: var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aab5af;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #b6d8ca;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(8, 127, 91, .09);
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(8, 127, 91, .3);
+    outline-offset: 3px;
+}
+
+/* 10. BUTTON */
+.btn {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 22px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0a9169, #056044);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    box-shadow: 0 8px 20px rgba(8, 127, 91, .2);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #087f5b, #034c38);
+    box-shadow: 0 12px 25px rgba(8, 127, 91, .28);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* 11. LINKS INSIDE AUTH */
+.auth-card p a {
+    font-weight: 700;
+}
+
+.auth-card p a:hover {
+    text-decoration: underline;
+}
+
+/* 12. VALIDATION AND ALERTS */
+.alert {
+    padding: 14px 17px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.alert-success {
+    color: #08764e;
+    background: #e7f7ef;
+    border: 1px solid #c5ecd8;
+}
+
+.alert-danger {
+    color: #b83232;
+    background: #fff0f0;
+    border: 1px solid #f5d0d0;
+}
+
+.text-danger,
+.field-error {
+    display: block;
+    color: var(--danger);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* 13. GENERAL CARDS */
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* 14. SECTION HEADINGS */
+h1,
+h2,
+h3,
+h4 {
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: clamp(23px, 3vw, 30px);
+    letter-spacing: -.8px;
+}
+
+h3 {
+    font-size: 19px;
+}
+
+/* 15. PRODUCT GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.product-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lg);
+}
+
+.product-card img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+    background: #edf3ef;
+    transition: transform .5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.product-price {
+    color: var(--primary);
+    font-size: 17px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.product-category {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 16. TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    color: var(--navy);
+    background: #f0f7f3;
+    font-weight: 800;
+}
+
+tr:hover td {
+    background: #f9fcfa;
+}
+
+/* 17. BADGES */
+.badge {
+    display: inline-flex;
+    padding: 5px 11px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* 18. FOOTER */
+footer {
+    padding: 35px 20px;
+    background: var(--navy);
+    color: rgba(255, 255, 255, .75);
+    text-align: center;
+    font-size: 12px;
+}
+
+footer a {
+    color: #8ee0bd;
+}
+
+/* 19. ANIMATIONS */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 20. RESPONSIVE TABLET */
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 17px;
+    }
+
+    .nav {
+        min-height: 70px;
+    }
+
+    .auth-card {
+        padding: 35px;
+    }
+}
+
+/* 21. RESPONSIVE MOBILE */
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 15px 0;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    .top-note {
+        font-size: 10px;
+    }
+
+    main {
+        padding-top: 25px;
+        padding-bottom: 40px;
+    }
+
+    .auth-card {
+        margin: 10px auto;
+        padding: 27px 22px;
+        border-radius: 19px;
+    }
+
+    .auth-card h1 {
+        font-size: 25px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-card img {
+        height: 155px;
+    }
+
+    .product-info {
+        padding: 12px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .product-price {
+        font-size: 15px;
+    }
+
+    th,
+    td {
+        padding: 11px 9px;
+        font-size: 11px;
+    }
+}
+
+/* 22. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+
+
+
