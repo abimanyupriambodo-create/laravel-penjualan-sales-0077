@@ -26,7 +26,6 @@ class Product extends Model
     {
         return [
             'price' => 'decimal:2',
-            'stock' => 'integer',
             'is_active' => 'boolean',
         ];
     }
@@ -34,6 +33,11 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function stockMovements()
+    {
+        return $this->hasMany(StockMovement::class);
     }
 
     public function scopeActive(Builder $query): Builder

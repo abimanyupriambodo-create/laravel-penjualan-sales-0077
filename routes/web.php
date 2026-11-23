@@ -1,16 +1,16 @@
 <?php
-use App\Http\Controllers\Admin\DashboardController;
+
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ShippingServiceController;
 use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductCatalogController;
 use Illuminate\Support\Facades\Route;
 
-// Halaman utama
-Route::get('/', function () {
-    return 'Halaman Utama / Katalog (shop.index)';
-})->name('shop.index');
+// Katalog & Detail Produk (M4)
+Route::get('/', [ProductCatalogController::class, 'index'])->name('shop.index');
+Route::get('/produk/{product:slug}', [ProductCatalogController::class, 'show'])->name('shop.show');
 
 // Login dan register
 Route::middleware('guest')->group(function () {
@@ -27,8 +27,9 @@ Route::post('/logout', [AuthController::class, 'logout'])
 
 // Admin
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
-
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', function () {
+        return 'Halo Admin! Login berhasil.';
+    })->name('dashboard');
 
     // Kategori (M2)
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
