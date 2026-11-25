@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
 use App\Models\ShippingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,8 +25,8 @@ class ShippingServiceController extends Controller
             'eta' => ['nullable', 'max:80'],
             'cost' => ['required', 'numeric', 'min:0'],
         ]);
-        $data['is_active'] = $request->boolean('is_active');
 
+        $data['is_active'] = $request->boolean('is_active');
         ShippingService::create($data);
 
         return back()->with('success', 'Layanan ekspedisi ditambahkan.');
@@ -41,8 +40,8 @@ class ShippingServiceController extends Controller
             'eta' => ['nullable', 'max:80'],
             'cost' => ['required', 'numeric', 'min:0'],
         ]);
-        $data['is_active'] = $request->boolean('is_active');
 
+        $data['is_active'] = $request->boolean('is_active');
         $shippingService->update($data);
 
         return back()->with('success', 'Layanan ekspedisi diperbarui.');
@@ -55,11 +54,3 @@ class ShippingServiceController extends Controller
         return back()->with('success', 'Layanan ekspedisi dinonaktifkan.');
     }
 }
-=======
-use Illuminate\Http\Request;
-
-class ShippingServiceController extends Controller
-{
-    //
-}
->>>>>>> milestone/03-inventory-shipping
