@@ -92,5 +92,5 @@
 </table></div>
 {{ $movements->links() }}
 </div>
-@endsection
->>>>>>> milestone/03-inventory-shipping
+
+
